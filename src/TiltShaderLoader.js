@@ -51,7 +51,7 @@ export class TiltShaderLoader extends THREE.Loader {
         textureLoader.setPath(this.path);
         textureLoader.setWithCredentials( this.withCredentials );
 
-        const materialParams = tiltBrushMaterialParams[brushName];
+        const materialParams = structuredClone(tiltBrushMaterialParams[brushName]);
 
         materialParams.glslVersion = GLSL3;
         materialParams.vertexShader = await loader.loadAsync(materialParams.vertexShader);
